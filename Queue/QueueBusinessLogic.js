@@ -41,25 +41,23 @@ class Queue {
     }
     dequeue() {
         // first elemnet get off the  queue
+        const trackingNode = this.first;
         if (this.first === this.last) {
-            const tackingNode = this.first;
             this.first = null;
             this.last = null
-            this.length--;
         } else {
-            const trackingNode = this.first;
             this.first = this.first.next;
-            this.length--;
         }
+        this.length--;
         return trackingNode
     }
 }
 
 let q = new Queue();
-q.enqueue(10);
-q.enqueue(20);
-q.enqueue(30);
-q.enqueue(40);
-q.enqueue(50);
+q.enqueue("10");
+q.enqueue("20");
+q.enqueue("30");
+q.enqueue("40");
+q.enqueue("50");
 q.dequeue()
 console.log(q);
