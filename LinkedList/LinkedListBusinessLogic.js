@@ -1,0 +1,245 @@
+const readline = require('readline-sync');
+/**
+ * @problem : To write a program where linked list is created and perform following operrations:
+ * Operations: 1. AddFirst 2. addLast 3.displayLinkedList 4.search 5.exit
+ * @author : Akshay
+ * 
+ */
+
+//Create class Node
+//@params data take from user
+
+class Node {
+
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+
+}
+
+//Create LinkedList main Class 
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        //this.next=null
+    }
+
+    //AddNode in LinkedList 
+    //parameters data is taken from user
+
+    addNode(data) {
+        let first = new Node(data);
+
+        let current = this.head;
+        if (this.head == null) {
+            return this.head = first;
+        }
+        else {
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = first;
+            return first = current;
+        }
+    }
+
+    // to ckeck is list empty or not
+
+    isEmpty() {
+        if (this.head === null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+    //calculate size of linkedlist
+
+    sizee() {
+        let current = this.head;
+        let count = 0;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+
+
+        return count;
+    }
+    //add first in linkedlist
+    //param data take from user
+
+    addFirst(data) {
+        let firstNode = new Node(data);
+        firstNode.next = this.head;
+        this.head = firstNode;
+    }
+    //add last in linkedlist
+    //param data take from user
+
+    addLast(value) {
+        let lastNode = { data: value, next: null };
+        if (this.isEmpty()) {
+            return this.head = lastNode;
+        }
+        let current = this.head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        return current.next = lastNode;
+    }
+
+    //data take from user
+
+    printList() {
+
+        let curr = this.head;
+        let str = " ";
+        while (curr) {
+            str += curr.data + "-->";
+            curr = curr.next;
+        }
+
+        return (str);
+    }
+
+    // delete first from linkedlist
+
+    deleteFirst() {
+        this.head = this.head.next;
+        return this.head;
+    }
+
+    // delete last in linkedlist
+    deleteLast() {
+        let lastNode = this.head;
+        let previous;
+        while (lastNode.next != null) {
+            previous = lastNode;
+            lastNode = lastNode.next;
+        }
+        previous.next = null;
+    }
+
+    //param data and pos take from user
+
+    addAtPossition(data, pos) {
+        let newNode = new Node(data);
+        let current, previous;
+        current = this.current;
+        if (pos == 0) {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        let count = 0;
+        current = this.head;
+        while (count < pos - 1) {
+            count++;
+            previous = current;
+            current = current.next;
+
+        }
+        previous.next = newNode;
+        newNode.next = current;
+
+    }
+
+
+    // param data take from user
+
+    deletePossition(pos) {
+        let possition = this.head;
+        let previous;
+        let count = 0;
+        while (count < pos) {
+            count++;
+            previous = possition;
+            possition = possition.next;
+        }
+        previous.next = possition.next;
+    }
+
+    deleteNode(data) {
+        let temp = this.head;
+        let previous = null;
+
+        if (temp.data == data) {
+            this.head = temp.next;
+            return temp.data;
+        }
+        while (temp != null && temp.data != data) {
+            previous = temp;
+            temp = temp.next;
+        }
+        previous.next = temp.next;
+
+        return temp.data;
+    }
+
+
+    // param kay take from user
+    search(key) {
+        let current = this.head;
+        while (current != null) {
+            if (current.data == key) {
+                return current.data;
+            }
+            current = current.next;
+        }
+
+        return false;
+    }
+}
+
+module.exports = LinkedList;
+
+let list = new LinkedList();
+console.log(list);
+console.log();
+
+console.log("List empty : " + list.isEmpty());
+console.log();
+
+list.addNode(5)
+list.addNode(15);
+list.addNode(25);
+list.addNode(35);
+list.addNode(45);
+list.addNode(55);
+list.addNode(65);
+
+
+
+console.log("Linked List is : ", list.printList());
+console.log();
+
+console.log("Size of LinkedList is : " + list.sizee());
+console.log();
+
+list.deleteFirst();
+console.log("First Element Deleted From the LinkedList : " + list.printList());
+console.log();
+
+list.addAtPossition(35, 3);
+console.log("Insert at possition in LinkedList : " + list.printList());
+console.log();
+
+list.addFirst(10);
+console.log("Insert at First Possition in LinkedList : " + list.printList());
+console.log();
+
+list.deleteLast()
+console.log("Delete at Last Possition in LinkedList : " + list.printList());
+console.log();
+
+let pos = readline.question("Enter Possition to delete : ");
+list.deletePossition(parseInt(pos));
+console.log("Delete element in Given Possition : " + list.printList());
+console.log();
+
+let search = readline.questionInt("Enter element to search : ");
+console.log("Searched Element is : " + list.search(parseInt(search)));
+console.log();
