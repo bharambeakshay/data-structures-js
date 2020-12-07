@@ -212,7 +212,18 @@ class LinkedList {
             return data;
         }
     }
+    show() {
+        var arr = [];
+        console.log();
+        this.current = this.head;
+        while (this.current != null) {
+            arr.push(this.current.data);
 
+            this.current = this.current.next;
+        }
+
+        return arr;
+    }
 }
 
 module.exports = LinkedList;
