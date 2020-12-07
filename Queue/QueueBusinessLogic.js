@@ -19,9 +19,7 @@ class Queue {
         return !this.front;
     }
 
-    enqueue(
-        data //add at rear
-    ) {
+    enqueue(data) {              //add a rear
         let node = new Node(data);
         if (this.isEmpty()) {
             this.front = this.rear = node;
@@ -30,11 +28,14 @@ class Queue {
             node.prev = this.rear;
             this.rear = node;
         }
+        return "element is added";
     }
     dequeue() { // removes from front
         let node = this.front;
         if (!this.isEmpty()) {
             this.front = this.front.next;
+        } else {
+            console.log("Empty");
         }
         if (!this.front) {
             this.rear = null;
@@ -54,6 +55,8 @@ class Queue {
             }
             console.log(temparr.join(","));
         }
+        return" ";
+
     }
 }
 module.exports = Queue;
