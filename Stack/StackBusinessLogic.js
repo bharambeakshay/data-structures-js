@@ -38,6 +38,10 @@ class Stack {
     sizee() {
         return this.size;
     }
+    //This method checks the is stack empty or not 
+    isEmpty() {
+        console.log(this.size === 0);
+    }
 
     //The following function prints the stack
     printStack() {
