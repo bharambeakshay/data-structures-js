@@ -126,7 +126,7 @@ class LinkedList {
 
     //param data and pos take from user
 
-    addAtPossition(data, pos) {
+    addAtPosition(data, pos) {
         let newNode = new Node(data);
         let current, previous;
         current = this.current;
@@ -150,7 +150,7 @@ class LinkedList {
 
     // param data take from user
 
-    deletePossition(pos) {
+    deleteAtPosition(pos) {
         let possition = this.head;
         let previous;
         let count = 0;
@@ -196,50 +196,3 @@ class LinkedList {
 
 module.exports = LinkedList;
 
-let list = new LinkedList();
-console.log(list);
-console.log();
-
-console.log("List empty : " + list.isEmpty());
-console.log();
-
-list.addNode(5)
-list.addNode(15);
-list.addNode(25);
-list.addNode(35);
-list.addNode(45);
-list.addNode(55);
-list.addNode(65);
-
-
-
-console.log("Linked List is : ", list.printList());
-console.log();
-
-console.log("Size of LinkedList is : " + list.sizee());
-console.log();
-
-list.deleteFirst();
-console.log("First Element Deleted From the LinkedList : " + list.printList());
-console.log();
-
-list.addAtPossition(35, 3);
-console.log("Insert at possition in LinkedList : " + list.printList());
-console.log();
-
-list.addFirst(10);
-console.log("Insert at First Possition in LinkedList : " + list.printList());
-console.log();
-
-list.deleteLast()
-console.log("Delete at Last Possition in LinkedList : " + list.printList());
-console.log();
-
-let pos = readline.question("Enter Possition to delete : ");
-list.deletePossition(parseInt(pos));
-console.log("Delete element in Given Possition : " + list.printList());
-console.log();
-
-let search = readline.questionInt("Enter element to search : ");
-console.log("Searched Element is : " + list.search(parseInt(search)));
-console.log();
