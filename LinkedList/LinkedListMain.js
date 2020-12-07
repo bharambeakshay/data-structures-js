@@ -10,7 +10,7 @@ let list = new LinkedList();
 while (flag) {
 
     //userinput to select the option in menu    
-    let userInput = readline.questionInt(`enter choice : 1.addNode       2.addFirst         3.addLast     4.addAtPosition          5.printList          
+    let userInput = readline.questionInt(`enter choice : 1.addNode      2.addFirst         3.addLast     4.addAtPosition          5.printList          
      6.deleteFirst       7.deleteLast      8.deleteatPosition      9.search       10.sizeOfLinkedList       11.exit`);
 
 
