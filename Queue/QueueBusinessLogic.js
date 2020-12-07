@@ -2,14 +2,17 @@ class Node {
     constructor(data) {
         this.data = data;
         this.next = null;
+        this.prev = null;
     }
 }
 
 class Queue {
     constructor() {
-        this.first = null;
-        this.last = null;
-        this.length = 0;
+        let queue = [];
+        this.front = null;
+        this.rear = null;
+        this.size = 0;
+
     }
     peek() {
         // This method shows first node in queue
@@ -19,45 +22,57 @@ class Queue {
             return this.first;
         }
 
-
+    }
+    isEmpty() {
+        return !this.front;
     }
 
-    enqueue(data) {
-        //If there is no first, it adds to new first, else element get back of the line
-        let node = new Node();
-        if (!this.first) {
-            this.first = node;
-            this.last = node;
-            this.length++;
-
+    enqueue(
+        data //add at rear
+    ) {
+        let node = new Node(data);
+        if (this.isEmpty()) {
+            this.front = this.rear = node;
         } else {
-            this.last.next = node
-            this.last = node;
-            this.length++;
+            this.rear.next = node;
+            node.prev = this.rear;
+            this.rear = node;
         }
-        return this;
-
-
     }
-    dequeue() {
-        // first elemnet get off the  queue
-        const trackingNode = this.first;
-        if (this.first === this.last) {
-            this.first = null;
-            this.last = null
-        } else {
-            this.first = this.first.next;
+    dequeue() { // removes from front
+        let node = this.front;
+        if (!this.isEmpty()) {
+            this.front = this.front.next;
         }
-        this.length--;
-        return trackingNode
+        if (!this.front) {
+            this.rear = null;
+        }
+        return node;
+    }
+
+    printQueue() {
+        if (this.isEmpty()) {
+            console.log("empty");
+        } else {
+            var temparr = [];
+            var temp = this.front;
+            while (temp) {
+                temparr.push(temp.data);
+                temp = temp.next;
+            }
+            console.log(temparr.join(","));
+        }
     }
 }
+// module.exports = Queue;
+
 
 let q = new Queue();
-q.enqueue("10");
-q.enqueue("20");
-q.enqueue("30");
-q.enqueue("40");
-q.enqueue("50");
+q.enqueue(10);
+q.enqueue(20);
+q.enqueue(30);
+q.enqueue(40);
+q.enqueue(50);
 q.dequeue()
-console.log(q);
+
+q.printQueue();
