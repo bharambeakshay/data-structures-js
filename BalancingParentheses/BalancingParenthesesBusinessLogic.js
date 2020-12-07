@@ -1,5 +1,3 @@
-const readline = require('readline-sync');
-const Stack = require('../Stack/StackBusinessLogic')
 
 /**
  * @problem : To check if the parentheses are balanced or not.
@@ -7,9 +5,12 @@ const Stack = require('../Stack/StackBusinessLogic')
  * @author :Akshay
   returning true or false.
  */
+
+const stackFile = require('./StackLogic');
+
 BalParentheses = exp => {
-    array = exp.split("");
-    let stack = new Stack();
+    array = exp.toString().split("");
+    let stack = new stackFile.Stack();
     array.forEach(element => {
         if (element == "(" || element == "[" || element == "{") {
             stack.push(element);
@@ -18,7 +19,7 @@ BalParentheses = exp => {
         } else if (element == "]" && stack.top.data == "[") {
             stack.pop();
         } else if (element == "}" && stack.top.data == "{") {
-            stack1.pop();
+            stack.pop();
         }
     });
     stack.isEmpty();
