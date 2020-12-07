@@ -14,15 +14,7 @@ class Queue {
         this.size = 0;
 
     }
-    peek() {
-        // This method shows first node in queue
-        if (!this.first) {
-            return null;
-        } else {
-            return this.first;
-        }
 
-    }
     isEmpty() {
         return !this.front;
     }
@@ -64,15 +56,5 @@ class Queue {
         }
     }
 }
-// module.exports = Queue;
+module.exports = Queue;
 
-
-let q = new Queue();
-q.enqueue(10);
-q.enqueue(20);
-q.enqueue(30);
-q.enqueue(40);
-q.enqueue(50);
-q.dequeue()
-
-q.printQueue();
