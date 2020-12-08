@@ -109,7 +109,7 @@ function unorderedList(stringArray, searchWord) {
 
     //write operation to save updated list into the file.
     const dataWrite = list.printWords();
-    writeToFile("./UnorderedList.txt", dataWrite);
+    writeToFile("./UnOrderedList.txt", dataWrite);
 
 }
 
