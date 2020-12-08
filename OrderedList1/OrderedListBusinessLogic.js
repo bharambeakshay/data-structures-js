@@ -1,16 +1,17 @@
+const fs = require('fs');
 function orderedList(fileData, searchNumber) {
 
     let fileDataArray = fileData.toString().split(' ');
     let numbersArray = new Array();
     for (let i = 0; i < fileDataArray.length; i++) {
-        numbersArray.addElement(fileDataArray[i]);
+        numbersArray.push(fileDataArray[i]);
     }
 
     let list = new LinkedList;
 
     //Before inserting linked list sort the array 
 
-    numbersArray = numbersArray.sortedInsert(function (a, b) {
+    numbersArray = numbersArray.sort(function (a, b) {
         return a - b;
     });
     console.log("Sorted array: " + numbersArray);
@@ -156,3 +157,13 @@ class LinkedList {
     }
 }
 
+
+module.exports = { orderedList };
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, function (err) {     //this function write the data in file
+        if (err) {
+            return console.log(err); //error 
+        }
+    });
+}
