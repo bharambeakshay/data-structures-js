@@ -18,7 +18,7 @@ function orderedList(fileData, searchNumber) {
     //add all the numbers array element to the linked list
 
     for (let i = 0; i < numbersArray.length; i++) {
-        list.add(numbersArray[i]);
+        list.addElement(numbersArray[i]);
     }
     list.printElement();
     if (list.searchElement(searchNumber) == -1) {
