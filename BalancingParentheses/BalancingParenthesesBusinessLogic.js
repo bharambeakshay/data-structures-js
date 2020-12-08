@@ -8,8 +8,8 @@
 
 const stackFile = require('./StackLogic');
 
-BalParentheses = exp => {
-    array = exp.toString().split("");
+BalParentheses = expression => {
+    array = expression.toString().split("");
     let stack = new stackFile.Stack();
     array.forEach(element => {
         if (element == "(" || element == "[" || element == "{") {
