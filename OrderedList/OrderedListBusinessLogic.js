@@ -19,7 +19,7 @@ try {
     let find = sc.question("enter the number you want check");
     let check = linklist.search(find);
     if (check) {
-        linklist.removeElement(find);
+        linklist.deleteNode(find);
     }
     else {
         linklist.sortedInsert(find);
