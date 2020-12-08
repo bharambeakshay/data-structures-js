@@ -40,8 +40,6 @@ function orderedList(fileData, searchNumber) {
     writeToFile("./OrderedList.txt", dataWrite);
 }
 
-
-
 class Node {
     constructor(data) {
         this.data = data;
@@ -158,8 +156,6 @@ class LinkedList {
 }
 
 
-module.exports = { orderedList };
-
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {     //this function write the data in file
         if (err) {
@@ -167,3 +163,4 @@ function writeToFile(fileName, data) {
         }
     });
 }
+module.exports = { orderedList };
