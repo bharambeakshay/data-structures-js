@@ -213,7 +213,7 @@ class LinkedList {
         }
     }
     show() {
-        var arr = [];
+        let arr = [];
         console.log();
         this.current = this.head;
         while (this.current != null) {
