@@ -1,9 +1,11 @@
-try {
-    let readline = require('readline-sync');
-    const list = require('../LinkedList/LinkedListBusinessLogic');
-    const util = require('./OrderedTextFileIO');
-    let data = util.fileCall('../Assets/OrderedList.txt');
+let readline = require('readline-sync');
+const list = require('../LinkedList/LinkedListBusinessLogic');
+const util = require('./OrderedTextFileIO');
+const fileData = require('./OrderedList.txt');
+let data = util.fileCall(fileData);
 
+
+try {
 
     let linklist = new list;
 
@@ -14,12 +16,12 @@ try {
     let display = linklist.printList();
     console.log(display.join(' '));
 
-    util.writeFile('file.../Assets/OrderedList.txt', display)
+    util.writeFile(data, display)
 
-    let find = readline.question("enter the number you want check");
+    let find = readline.questionInt("enter the number you want check");
     let check = linklist.search(find);
     if (check) {
-        linklist.deleteNode(find);
+        linklist.deleteAtPosition(find);
     }
     else {
         linklist.sortedInsert(find);
@@ -28,7 +30,7 @@ try {
     let displayFile = linklist.show();
     console.log(displayFile.join(' '));
 
-    util.writeFile('file.../Assets/OrderedList.txt', displayFile)
+    util.writeFile(data, displayFile)
 }
 catch (e) {
     console.log(e.message);
