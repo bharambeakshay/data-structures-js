@@ -1,10 +1,53 @@
+function orderedList(fileData, searchNumber) {
+
+    let fileDataArray = fileData.toString().split(' ');
+    let numbersArray = new Array();
+    for (let i = 0; i < fileDataArray.length; i++) {
+        numbersArray.addElement(fileDataArray[i]);
+    }
+
+    let list = new LinkedList;
+
+    //Before inserting linked list sort the array 
+
+    numbersArray = numbersArray.sortedInsert(function (a, b) {
+        return a - b;
+    });
+    console.log("Sorted array: " + numbersArray);
+
+    //add all the numbers array element to the linked list
+
+    for (let i = 0; i < numbersArray.length; i++) {
+        list.add(numbersArray[i]);
+    }
+    list.printElement();
+    if (list.searchElement(searchNumber) == -1) {
+        list.addElement(searchNumber);
+        console.log("Added successfully..\n");
+    }
+
+    // This condition checks for removing the item,if item already exists in file
+
+    else {
+        list.deleteElement(searchNumber);
+        console.log("Removed successfully....\n");
+    }
+
+    // write operation to save updated list into the file.
+
+    let dataWrite = list.printElement();
+    writeToFile("./OrderedList.txt", dataWrite);
+}
+
+
+
 class Node {
     constructor(data) {
         this.data = data;
         this.next = null;
     }
 }
-class linkedList {
+class LinkedList {
     constructor() {
         this.head = null;
         this.size = 0;
@@ -44,9 +87,9 @@ class linkedList {
         }
         this.size++;  //size incremented
     }
-    
+
     // deletes the string or searchNumber,if it already exists
-    
+
     deleteElement(searchNumber) {
         let current = this.head;
         let previous = null;
@@ -93,4 +136,23 @@ class linkedList {
         return -1; //item not found it will return -1
     }
 
+
+    sortedInsert(data) {
+        let node = new Node(data);
+        let current = this.head;
+        if (!this.head || node.data <= current.data) {
+            node.next = this.head;
+            this.head = node;
+            this.size++;
+        } else {
+            while (current.next && node.data >= current.next.data) {
+                current = current.next;
+            }
+            node.next = current.next;
+            current.next = node;
+            this.size++;
+            return data;
+        }
+    }
 }
+
