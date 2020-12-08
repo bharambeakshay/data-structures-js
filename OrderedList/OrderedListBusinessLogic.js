@@ -1,5 +1,5 @@
 try {
-    let sc = require('readline-sync');
+    let readline = require('readline-sync');
     const list = require('../LinkedList/LinkedListBusinessLogic');
     const util = require('./OrderedTextFileIO');
     let data = util.fileCall('../Assets/OrderedList.txt');
@@ -16,7 +16,7 @@ try {
 
     util.writeFile('file.../Assets/OrderedList.txt', display)
 
-    let find = sc.question("enter the number you want check");
+    let find = readline.question("enter the number you want check");
     let check = linklist.search(find);
     if (check) {
         linklist.deleteNode(find);
