@@ -1,44 +1,4 @@
 const fs = require('fs');
-function orderedList(fileData, searchNumber) {
-
-    let fileDataArray = fileData.toString().split(' ');
-    let numbersArray = new Array();
-    for (let i = 0; i < fileDataArray.length; i++) {
-        numbersArray.push(fileDataArray[i]);
-    }
-
-    let list = new LinkedList;
-
-    //Before inserting linked list sort the array 
-
-    numbersArray = numbersArray.sort(function (a, b) {
-        return a - b;
-    });
-    console.log("Sorted array: " + numbersArray);
-
-    //add all the numbers array element to the linked list
-
-    for (let i = 0; i < numbersArray.length; i++) {
-        list.addElement(numbersArray[i]);
-    }
-    list.printElement();
-    if (list.searchElement(searchNumber) == -1) {
-        list.addElement(searchNumber);
-        console.log("Added successfully..\n");
-    }
-
-    // This condition checks for removing the item,if item already exists in file
-
-    else {
-        list.deleteElement(searchNumber);
-        console.log("Removed successfully....\n");
-    }
-
-    // write operation to save updated list into the file.
-
-    let dataWrite = list.printElement();
-    writeToFile("./OrderedList.txt", dataWrite);
-}
 
 class Node {
     constructor(data) {
@@ -119,7 +79,7 @@ class LinkedList {
             string += current.data + " ";
             current = current.next;
         }
-        console.log("Ordered Linked list: " + string);
+        console.log("Linked list: " + string);
         return string;
     }
     searchElement(searchNumber) {
@@ -153,6 +113,48 @@ class LinkedList {
             return data;
         }
     }
+}
+
+
+function orderedList(fileData, searchNumber) {
+
+    let fileDataArray = fileData.toString().split(' ');
+    let numbersArray = new Array();
+    for (let i = 0; i < fileDataArray.length; i++) {
+        numbersArray.push(fileDataArray[i]);
+    }
+
+    let list = new LinkedList;
+
+    //Before inserting linked list sort the array 
+
+    numbersArray = numbersArray.sort(function (a, b) {
+        return a - b;
+    });
+    // console.log("Sorted array: " + numbersArray);
+
+    //add all the numbers array element to the linked list
+
+    for (let i = 0; i < numbersArray.length; i++) {
+        list.addElement(numbersArray[i]);
+    }
+    list.printElement();
+    if (list.searchElement(searchNumber) == -1) {
+        list.addElement(searchNumber);
+        console.log("Added successfully");
+    }
+
+    // This condition checks for removing the item,if item already exists in file
+
+    else {
+        list.deleteElement(searchNumber);
+        console.log("Removed successfully");
+    }
+
+    // write operation to save updated list into the file.
+
+    let dataWrite = list.printElement();
+    writeToFile("./OrderedList.txt", dataWrite);
 }
 
 
