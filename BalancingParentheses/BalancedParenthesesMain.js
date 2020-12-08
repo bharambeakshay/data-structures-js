@@ -6,5 +6,5 @@
 */
 const balancedParanthesess = require("./BalancingParenthesesBusinessLogic");
 let readline = require("readline-sync");
-let exp = readline.question("Enter the expression: ");
-balancedParanthesess.BalParentheses(exp);
+let expresion = readline.question("Enter the expression: ");
+balancedParanthesess.BalParentheses(expresion);
