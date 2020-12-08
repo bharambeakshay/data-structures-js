@@ -24,9 +24,9 @@ BalParentheses = exp => {
     });
     stack.isEmpty();
     if (stack.size === 0) {
-        console.log("The Parentheses are Perfectly Balanced!");
+        console.log("Parentheses are balanced");
     } else {
-        console.log("The parentheses are Not Balanced");
+        console.log("Parentheses are not balanced");
     }
 };
 module.exports = {

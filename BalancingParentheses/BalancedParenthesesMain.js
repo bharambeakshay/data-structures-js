@@ -4,7 +4,7 @@
  * In this file we give input as expression
 
 */
-const BalPar = require("./BalancingParenthesesBusinessLogic");
+const balancedParanthesess = require("./BalancingParenthesesBusinessLogic");
 let readline = require("readline-sync");
 let exp = readline.question("Enter the expression: ");
-BalPar.BalParentheses(exp);
+balancedParanthesess.BalParentheses(exp);
