@@ -1,3 +1,13 @@
+/******************************************************************************************************
+* @purpose  :  Write a program  for Dequeue, where on can enqueue, dequeue elements form queue.
+                This file takes the necesssary input required to perfome queue
+* 
+*  @Auther   : Akshay
+*  @File     : QueueMain.js 
+*  
+************************************************************************************************/
+
+
 const readline = require('readline-sync');
 const Queue = require('./QueueBusinessLogic');
 

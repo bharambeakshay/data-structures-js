@@ -1,3 +1,13 @@
+/******************************************************************************************************
+* @purpose  :   Write a program to take the number as input from file and sort  it in ordered mannner
+*               and  if element  is present delete it , if not not add it. 
+*                Output should ber written in file again
+* 
+*  @Auther   : Akshay
+*  @File     : OrderedListBusinessLogic.js 
+*  
+************************************************************************************************/
+
 const fs = require('fs');
 
 class Node {

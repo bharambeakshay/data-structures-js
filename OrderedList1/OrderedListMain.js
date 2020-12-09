@@ -1,4 +1,13 @@
-const fs = require("fs");
+/******************************************************************************************************
+* @purpose  :  To  read and write text file and store list in it
+* @description :All operations of OrderedListBusinessLogic.js are carried are from this file
+* 
+*  @Auther   : Akshay
+*  @File     : OrderedListMain.js 
+*  
+************************************************************************************************/
+
+const fs = require('fs');
 const linkedList = require('./OrderedListBusinessLogic');
 const readline = require("readline-sync");
 let filedata = fs.readFileSync('./OrderedList.txt');

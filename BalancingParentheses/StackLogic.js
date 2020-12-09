@@ -1,4 +1,10 @@
-
+/******************************************************************************************************
+* @purpose  :  Write a program  to search a word using binary search. 
+* 
+*  @Auther   : Akshay
+*  @File     : unorderedList.js 
+*  
+************************************************************************************************/
 class Node {
     constructor(data) {
         this.data = data;

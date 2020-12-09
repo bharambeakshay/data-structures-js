@@ -1,3 +1,14 @@
+/******************************************************************************************************
+* @purpose  :   Write a program to take the string as input from file
+                and  if element  is present delete it , if not not add it. 
+                Output should ber written in file again
+
+* 
+*  @Auther   : Akshay
+*  @File     : UnOrderedListBusinessLogic.js 
+*  
+************************************************************************************************/
+
 const fs = require('fs');
 
 class Node {

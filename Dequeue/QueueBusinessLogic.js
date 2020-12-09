@@ -1,3 +1,12 @@
+/******************************************************************************************************
+* @purpose  :  Write a program  for Dequeue, where on can enqueue, dequeue elements form queue
+* 
+*  @Auther   : Akshay
+*  @File     : QueueBusinessLogic.js 
+*  
+************************************************************************************************/
+
+
 class Node {
     constructor(data) {
         this.data = data;
@@ -14,12 +23,18 @@ class Queue {
         this.size = 0;
 
     }
-
+    /**
+     * Checks the queue is empty or not
+     */
     isEmpty() {
         return !this.front;
     }
-
-    enqueue(data) {              //add a rear
+    /**
+     * 
+     * @param {data} data :enters the data either at first node  if elements are not present
+     *  else at last node if elements are present 
+     */
+    enqueue(data) {
         let node = new Node(data);
         if (this.isEmpty()) {
             this.front = this.rear = node;
@@ -30,7 +45,12 @@ class Queue {
         }
         return "element is added";
     }
-    dequeue() { // removes from front   
+
+    /**
+     * 
+     * @function dequeue : This function removes the data from the front
+     */
+    dequeue() {
         let node = this.front;
         if (!this.isEmpty()) {
             this.front = this.front.next;
@@ -43,6 +63,10 @@ class Queue {
         return node;
     }
 
+    /**
+        * 
+        * @function printQueue: This function prints the queue
+        */
     printQueue() {
         if (this.isEmpty()) {
             console.log("empty");
@@ -55,7 +79,7 @@ class Queue {
             }
             console.log(temparr.join(","));
         }
-        return" ";
+        return " ";
 
     }
 }

@@ -1,3 +1,12 @@
+/******************************************************************************************************
+* @purpose  :   To rake the userinput and perform the operations on linkedlist
+@description :All operations of linkedlist are carried are from this file
+* 
+*  @Auther   : Akshay
+*  @File     : LinkedListMain.js 
+*  
+************************************************************************************************/
+
 const readline = require('readline-sync');
 const LinkedList = require('./LinkedListBusinessLogic');
 

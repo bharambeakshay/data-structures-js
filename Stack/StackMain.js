@@ -1,3 +1,12 @@
+/******************************************************************************************************
+* @purpose  :  To  check push,pop,remove operations  on stack
+* @description :All operations of StackBusinessLogic.js are carried are from this file
+* 
+*  @Auther   : Akshay
+*  @File     : StackMain.js 
+*  
+************************************************************************************************/
+
 const readline = require('readline-sync');
 const Stack = require('./StackBusinessLogic');
 
