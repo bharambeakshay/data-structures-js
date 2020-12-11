@@ -21,8 +21,6 @@ console.log("Removed the last element: " + liquorPop);
 let liquorSort = liquor.sort();
 console.log("Sorting: " + liquorSort);
 
-
-
 //filter function
 const liquorStore = [
     { alcohol: 'whisky', preservation: 15 },
@@ -49,7 +47,6 @@ for (let i = 0; i < liquor.length; i++) {
     console.log("Index " + i + " " + liquor[i]);
 }
 
-
 console.log("Reduce function: ")
 let arrayElements = [1, 2, 3, 4, 5];
 let result = arrayElements.reduce((sum, current) => sum + current, 0);
@@ -58,8 +55,6 @@ console.log("Reduce: " + result);
 console.log("Slice operation: ")
 let arraySlice = liquor.slice(1, 3)
 console.log(arraySlice);
-
-
 
 let liquorSplice = liquor.splice(2, 0, "vodka", "brandy");
 console.log("Splice operation")
