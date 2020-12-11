@@ -56,9 +56,9 @@ class LinkedList {
         }
         this.size++;  //size incremented
     }
-
-    // deletes the string or searchNumber,if it already exists
-
+    /** 
+        deletes the string or searchNumber,if it already exists
+    */
     deleteElement(searchNumber) {
         let current = this.head;
         let previous = null;
@@ -82,6 +82,9 @@ class LinkedList {
         }
         return -1;
     }
+    /** 
+     prints the list
+    */
     printElement() {
         let current = this.head;
         let string = "";
@@ -164,10 +167,14 @@ function orderedList(fileData, searchNumber) {
     // write operation to save updated list into the file.
 
     let dataWrite = list.printElement();
-    writeToFile("./OrderedList.txt", dataWrite);
+    writeToFile("OrderedList1/OrderedList.txt", dataWrite);
 }
 
-
+/**
+ * 
+ * The folowing functions writes the data to text files
+ * 
+ */
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {     //this function write the data in file
         if (err) {
