@@ -78,6 +78,7 @@ class LinkedList {
         let firstNode = new Node(data);
         firstNode.next = this.head;
         this.head = firstNode;
+        return firstNode;
     }
     //add last in linkedlist
     //param data take from user
